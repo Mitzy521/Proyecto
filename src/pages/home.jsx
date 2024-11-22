@@ -21,9 +21,8 @@ function Home() {
     usuarios.push({ nombre, contraseña });
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    // Después de registrarse, redirigimos al inicio de sesión
-    setRegistro(false); // Cambiar el estado a "Iniciar sesión"
-    navigate('/'); // Redirigir a la página de inicio de sesión
+    setRegistro(false);
+    navigate('/about'); 
   };
 
   const toggleRegistro = () => {
@@ -31,7 +30,7 @@ function Home() {
   };
 
   const irAAbout = () => {
-    navigate('/about'); // Redirigir a la página de About
+    navigate('/about');
   };
 
   return (
@@ -49,16 +48,14 @@ function Home() {
         <button type="submit">{registro ? 'Registrarse' : 'Iniciar Sesión'}</button>
       </form>
 
-      {/* Mostrar solo el botón de registro cuando no estamos en el formulario de registro */}
       {!registro && (
         <>
           <button onClick={toggleRegistro}>Regístrate</button>
         </>
       )}
 
-      {/* Si estamos en el modo de registro, eliminar el botón de "Iniciar sesión" */}
       {registro && (
-        <button onClick={irAAbout}>Iniciar Sesión</button> // Redirigir a /about después de registro
+        <button onClick={irAAbout}>Iniciar Sesión</button>
       )}
     </div>
   );
